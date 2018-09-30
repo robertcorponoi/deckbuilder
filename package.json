@@ -1,0 +1,27 @@
+{
+  "name": "deckbuilder",
+  "version": "0.1.2",
+  "description": "A deck building and management tool for all sorts of card based games.",
+  "main": "index.js",
+  "directories": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "TODO"
+  },
+  "keywords": [
+    "card",
+    "deck",
+    "builder"
+  ],
+  "author": "Robert Corponoi",
+  "license": "MIT"
+}
