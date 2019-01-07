@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="250" height="250" src="./deckbuilder.png">
+</p>
+
 <h1 align="center">Deckbuilder</h1>
 
 <p align="center">A deck building and management tool for all sorts of card based games.<p>

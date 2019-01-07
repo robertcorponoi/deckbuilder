@@ -1,6 +1,6 @@
 {
   "name": "deckbuilder",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A deck building and management tool for all sorts of card based games.",
   "main": "index.js",
   "directories": {
