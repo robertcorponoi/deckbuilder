@@ -1,15 +1,19 @@
 'use strict'
 
+import Card from './interfaces/Card';
+
 /**
  * Clone an object and its properties.
  * 
- * @since 0.1.0
+ * @param {Object} o The object to clone.
+ * 
+ * @returns {Object} Returns the cloned object.
  */
-export function deepCopy(o) {
+export function deepCopy(o: any): Array<Card> {
 
-  let out;
-  let key;
-  let v;
+  let out: any;
+  let key: string;
+  let v: Object;
 
   out = Array.isArray(o) ? [] : {};
 

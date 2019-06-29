@@ -4,7 +4,7 @@
 
 <h1 align="center">Deckbuilder</h1>
 
-<p align="center">A deck building and management tool for all sorts of card based games.<p>
+<p align="center">A deck building and management tool any card based games in the browser or Node.<p>
 
 <div align="center">
   <a href="https://badge.fury.io/js/deckbuilder"><img src="https://badge.fury.io/js/deckbuilder.svg" alt="npm version" height="18"></a>
@@ -15,9 +15,7 @@
 
 ## **Installation**
 
-Deckbuilder works with Node, as an ES6 module, and just as a script.
-
-To install this module through npm, simply use the following command:
+Deckbuilder can be used by referencing the deckbuilder.js script or through NPM:
 
 ```
 $ npm install --save deckbuilder
@@ -29,18 +27,10 @@ and to use it, you can require it in your project:
 const Deckbuilder = require('deckbuilder');
 ```
 
-To use Deckbuilder in the browser, you can use it as an ES6 module or just reference the script.
-
-To use it as an ES6 module you can either install it through npm or download the contents of the es6 folder and import it as so:
+To use Deckbuilder in the browser, you can use it as an ES6 module:
 
 ```js
-import { Deckbuilder } from './node_modules/deckbuilder/es6/deckbuilder.js';
-```
-
-Or lastly, you can just reference the script the old fashioned way from the dist folder:
-
-```html
-<script src='./node_modules/deckbuilder/dist/deckbuilder.min.js'>
+import Deckbuilder from './node_modules/deckbuilder/deckbuilder.js';
 ```
 
 ## **Initialization**
@@ -106,7 +96,8 @@ Deckbuilder has many (hopefully all of the) methods you need to create and manag
 * [Draw a number of cards from the deck](#draw)
 * [Pick specific cards from the deck](#pick)
 * [Send cards to the discard pile](#discard)
-* [Return cards back to the deck](#return)
+* [Return cards from the drawn pile back to the deck](#returnDrawn)
+* [Return cards from the discarded pile back to the deck](#returnDiscarded)
 
 ### **add**
 
@@ -191,17 +182,17 @@ Shuffle the cards in the deck using a specified shuffling method any number of t
 | param     | type                         | description                                            | default                                   |
 |-----------|------------------------------|--------------------------------------------------------|-------------------------------------------|
 | times     | number                       | The number of times to repeat the shuffle on the deck. |                                           |
-| technique | deckbuilder.shuffleTechnique | The shuffling technique to use on the deck.            | deckbuilder.shuffleTechniques.fisherYates |
+| technique | deckbuilder.shuffleTechnique | The shuffling technique to use on the deck.            | deckbuilder.SHUFFLE_METHODS.FISHERYATES |
 
-To avoid typos, the shuffling technique must be provided from the available `deckbuilder.shuffleTechniques` object.
+To avoid typos, the shuffling technique must be provided from the available `deckbuilder.SHUFFLE_METHODS` object.
 
 The current possible shuffle techniques (with more on the way) are:
 
-1. fisherYates: One of the best array shuffling methods available.
+1. FISHERYATES: One of the best array shuffling methods available.
 
-2. strip: Removes a part of the deck and places it in another part of the deck.
+2. STRIP: Removes a part of the deck and places it in another part of the deck.
 
-By default, the `shuffleTechniques.fisherYates` method is used as it is very good at shuffling the deck.
+By default, the `SHUFFLE_METHODS.FISHERYATES` method is used as it is very good at shuffling the deck.
 
 Shuffling the deck using the fisherYates method 2 times:
 
@@ -212,7 +203,7 @@ deckbuilder.shuffle(2);
 Shuffling the deck using the strip method 5 times:
 
 ```js
-deckbuilder.shuffle(5, deckbuilder.shuffleTechniques.strip);
+deckbuilder.shuffle(5, deckbuilder.SHUFFLE_METHODS.STRIP);
 ```
 
 ### **deal**
@@ -296,29 +287,44 @@ Cards that are picked discarded will be moved to the `deckbuilder.discarded` pil
 deckbuilder.discard(['knight', 'mage']);
 ```
 
-### **return**
+### **returnDrawn**
 
-Return specific cards back to the deck or return the entire drawn or discarded piles back to the deck.
-
-Return takes an object of options because there are three different ways to return cards to the deck and any combination of them can be used.
+Returns one or more cards to the deck from the drawn pile. If no card ids are specified to be removed, all cards from the drawn pile will be returned to the deck.
 
 | param             | type                                      | description                                                                                                                                | default |
 |-------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| options           | Object                                    |                                                                                                                                            |         |
-| options.ids       | string/number or Array of strings/numbers | The cards to to return back to the deck by id. These cards could be in either the drawn or discarded piles so deckbuilder will check both. |         |
-| options.drawn     | boolean                                   | If set to true, all the cards from the drawn pile will be returned to the deck.                                                            | false   |
-| options.discarded | boolean                                   | If set to true, all the cards from the discarded pile will be returned to the deck.                                                        | false   |
+| ids               | string/number or Array of strings/numbers | The cards to to return back to the deck by id                                                                                              | []      |
 
 Return specific cards back to the deck:
 
 ```js
-deckbuilder.return({ ids: [1, 2]});
+deckbuilder.returnDrawn([1, 2]);
 ```
 
-Return all drawn and discarded cards back to the deck.
+Return all drawn cards back to the deck.
 
 ```js
-deckbuilder.return({ drawn: true, discarded: true });
+deckbuilder.returnDrawn();
+```
+
+### **returnDiscarded**
+
+Returns one or more cards to the deck from the discarded pile. If no card ids are specified to be removed, all cards from the discarded pile will be returned to the deck.
+
+| param             | type                                      | description                                                                                                                                | default |
+|-------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| ids               | string/number or Array of strings/numbers | The cards to to return back to the deck by id                                                                                              | []      |
+
+Return specific cards back to the deck:
+
+```js
+deckbuilder.returnDiscarded([1, 2]);
+```
+
+Return all discarded cards back to the deck.
+
+```js
+deckbuilder.returnDiscarded();
 ```
 
 ## **License**

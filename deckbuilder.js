@@ -1,5 +1,3 @@
-'use strict';
-
 function _typeof(obj) {
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
     _typeof = function (obj) {
@@ -601,4 +599,4 @@ function () {
   return Deckbuilder;
 }();
 
-module.exports = Deckbuilder;
+export default Deckbuilder;
