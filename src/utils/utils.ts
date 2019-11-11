@@ -1,6 +1,6 @@
 'use strict'
 
-import Card from './interfaces/Card';
+import Card from '../interfaces/Card';
 
 /**
  * Clone an object and its properties.

@@ -55,8 +55,6 @@ var Options =
 /**
  * The maximum amount of cards that the deck can contain.
  * 
- * @since 0.1.0
- * 
  * @property {number}
  * 
  * @default Infinity
@@ -170,10 +168,6 @@ function randomInt(min, max) {
 
 /**
  * Deckbuilder helps you create and manage car decks for any type of card game.
- * 
- * @author Robert Corponoi <robertcorponoi@gmail.com>
- * 
- * @version 1.0.0
  */
 
 var Deckbuilder =
@@ -182,15 +176,11 @@ function () {
   /**
    * A reference to the options for this instance.
    * 
-   * @since 1.0.0
-   * 
    * @property {Options}
    */
 
   /**
    * A reference to the current deck of cards.
-   * 
-   * @since 0.1.0
    * 
    * @property {Array<Card>}
    */
@@ -198,15 +188,11 @@ function () {
   /**
    * The total number of cards in this deck.
    * 
-   * @since 0.1.0
-   * 
    * @property {number}
    */
 
   /**
    * A reference to the cards that are currently drawn out and not a part of the deck.
-   * 
-   * @since 0.1.0
    * 
    * @property {Array<Card>}
    */
@@ -214,15 +200,11 @@ function () {
   /**
    * A reference to the cards that are currently discarded and not part of the deck.
    * 
-   * @since 0.1.0
-   * 
    * @property {Array<Card>}
    */
 
   /**
    * The shuffle methods available for use.
-   * 
-   * @since 0.1.0
    * 
    * @property {any}
    */
@@ -256,8 +238,6 @@ function () {
    * 
    * A card must be an object and it can have any properties that suit your needs but at the very least it needs an id that Deckbuilder
    * can use to keep track of the card.
-   * 
-   * @since 0.1.0
    * 
    * @param {Card | Array<Card>} cards One or more cards to add to the deck.
    * @param {boolean} [shuffleIn=false] If this is set to true, the card will be inserted into a random position in the deck instead of being added to the bottom.
@@ -318,8 +298,6 @@ function () {
      * 
      * The card or cards to be removed need to be referenced by their id property.
      * 
-     * @since 0.1.0
-     * 
      * @param {string|Array<string>} ids The id or ids of the cards to remove from the deck.
      * 
      * @returns {Deckbuilder} Returns this for chaining.
@@ -339,8 +317,6 @@ function () {
      * 
      * To define a new property, just set a new key and value. To edit a property, define the key to edit and the new value to set for that key. To
      * remove a property, define the key to delete.
-     * 
-     * @since 0.1.0
      * 
      * @param {string} id The id of the card to edit.
      * @param {string} key The name of the property to add, edit, or remove.
@@ -386,8 +362,6 @@ function () {
     /**
      * Shuffles the deck using one of the available shuffle methods any number of times.
      * 
-     * @since 0.1.0
-     * 
      * @param {number} [times=1] The number of times to shuffle the deck.
      * @param {string} [method='fisherYates'] The method to use for shuffling the deck.
      * 
@@ -406,8 +380,6 @@ function () {
      * Deals a specified number of cards from the deck to a specified number of players.
      * 
      * The cards can be dealt one at a time or all at once for each player.
-     * 
-     * @since 0.1.0
      * 
      * @param {number} players The number of players to deal cards to.
      * @param {number} cards The amount of cards to deal to each player.
@@ -451,8 +423,6 @@ function () {
     /**
      * Draw any number of cards from the top of the deck.
      * 
-     * @since 0.1.0
-     * 
      * @param {number} cards The number of cards to draw.
      * 
      * @returns {Array<Card>} The cards that have been drawn.
@@ -485,8 +455,6 @@ function () {
     /**
      * Pick one or more cards from the deck by their id/ids.
      * 
-     * @since 0.1.0
-     * 
      * @param {string|Array<string>} ids The id or ids of the cards to pick.
      * 
      * @returns {Array<Card>} Returns the picked cards.
@@ -502,8 +470,6 @@ function () {
     }
     /**
      * Discards any number of cards from the draw pile and optionally from the deck.
-     * 
-     * @since 0.1.0
      * 
      * @param {string|Array<string>} ids The id or ids of the cards to discard.
      * @param {boolean} [checkDeck=false] If set to true, it will also check the deck for cards it can discard and not just the drawn pile.
@@ -536,8 +502,6 @@ function () {
     }
     /**
      * Returns cards from the drawn pile back to the deck.
-     * 
-     * @since 1.0.0
      *
      * @param {string|Array<string>} [cards] By default all cards from the draw pile will be returned, this option can be used to return only certain cards from the drawn pile.
      *  
@@ -567,8 +531,6 @@ function () {
     }
     /**
      * Returns cards from the discarded pile back to the deck.
-     * 
-     * @since 1.0.0
      *
      * @param {string|Array<string>} [cards] By default all cards from the discarded pile will be returned, this option can be used to return only certain cards from the discarded pile.
      *  

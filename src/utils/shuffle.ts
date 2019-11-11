@@ -1,6 +1,6 @@
 'use strict'
 
-import Card from './interfaces/Card';
+import Card from '../interfaces/Card';
 
 /**
  * Shuffle the deck using the Fisher-Yates method.

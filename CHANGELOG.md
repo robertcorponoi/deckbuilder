@@ -1,3 +1,8 @@
+1.0.4 / 2019-11-10
+==================
+* [MISC] Removed unnecessary jsdoc comments.
+* [MISC] Improved folder structure.
+
 1.0.3 / 2019-11-10
 ==================
 * [MISC] Updated all dependencies to their latest versions.

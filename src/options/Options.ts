@@ -10,8 +10,6 @@ export default class Options {
   /**
    * The maximum amount of cards that the deck can contain.
    * 
-   * @since 0.1.0
-   * 
    * @property {number}
    * 
    * @default Infinity
