@@ -1,3 +1,8 @@
+1.0.3 / 2019-11-10
+==================
+* [MISC] Updated all dependencies to their latest versions.
+* [MISC] Added README badges.
+
 1.0.2 / 2019-08-18
 ==================
 * [FEATURE] Updated all dev dependencies to their latest versions.

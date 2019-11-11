@@ -7,10 +7,14 @@
 <p align="center">A deck building and management tool any card based games in the browser or Node.<p>
 
 <div align="center">
-  <a href="https://badge.fury.io/js/deckbuilder"><img src="https://badge.fury.io/js/deckbuilder.svg" alt="npm version" height="18"></a>
-  <a href="https://badge.fury.io/js/deckbuilder"><img src="https://img.shields.io/badge/build-passing-brightgreen.svg" alt="build" height="18"></a>
+
+  [![NPM version](https://img.shields.io/npm/v/deckbuilder.svg?style=flat)](https://www.npmjs.com/package/deckbuilder)
+  [![Known Vulnerabilities](https://snyk.io/test/github/robertcorponoi/deckbuilder/badge.svg)](https://snyk.io/test/github/robertcorponoi/deckbuilder)
+  [![NPM downloads](https://img.shields.io/npm/dm/deckbuilder.svg?style=flat)](https://www.npmjs.com/package/deckbuilder)
   <a href="https://badge.fury.io/js/deckbuilder"><img src="https://img.shields.io/github/issues/robertcorponoi/deckbuilder.svg" alt="issues" height="18"></a>
   <a href="https://badge.fury.io/js/deckbuilder"><img src="https://img.shields.io/github/license/robertcorponoi/deckbuilder.svg" alt="license" height="18"></a>
+  [![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/robertcorponoi)
+
 </div>
 
 ## **Installation**

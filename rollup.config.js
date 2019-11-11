@@ -1,3 +1,5 @@
+'use strict'
+
 import pkg from './package.json';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
@@ -11,11 +13,13 @@ export default {
   external: [],
 
   plugins: [
+
     resolve({ extensions }),
 
     commonjs(),
 
     babel({ extensions, include: ['src/**/*'] }),
+
   ],
 
   output: [{
@@ -25,4 +29,5 @@ export default {
     file: pkg.module,
     format: 'es',
   }]
+
 };
