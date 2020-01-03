@@ -1,15 +1,17 @@
 <p align="center">
-  <img width="250" height="250" src="./deckbuilder.png">
+  <img width="250" height="250" src="https://github.com/robertcorponoi/graphics/blob/master/deckbuilder/deckbuilder-logo.png?raw=true">
 </p>
 
 <h1 align="center">Deckbuilder</h1>
 
 <p align="center">A deck building and management tool any card based games in the browser or Node.<p>
 
+
 <div align="center">
 
   [![NPM version](https://img.shields.io/npm/v/deckbuilder.svg?style=flat)](https://www.npmjs.com/package/deckbuilder)
   [![Known Vulnerabilities](https://snyk.io/test/github/robertcorponoi/deckbuilder/badge.svg)](https://snyk.io/test/github/robertcorponoi/deckbuilder)
+  ![npm](https://img.shields.io/npm/dt/deckbuilder)
   [![NPM downloads](https://img.shields.io/npm/dm/deckbuilder.svg?style=flat)](https://www.npmjs.com/package/deckbuilder)
   <a href="https://badge.fury.io/js/deckbuilder"><img src="https://img.shields.io/github/issues/robertcorponoi/deckbuilder.svg" alt="issues" height="18"></a>
   <a href="https://badge.fury.io/js/deckbuilder"><img src="https://img.shields.io/github/license/robertcorponoi/deckbuilder.svg" alt="license" height="18"></a>

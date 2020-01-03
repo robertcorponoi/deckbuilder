@@ -1,3 +1,10 @@
+1.1.0 / 2020-01-02
+==================
+* [MISC] Updated dependencies to their latest versions.
+* [MISC] Updated license year to reflect new year.
+* [MISC] Added more badges to README.
+* [MISC] Moved logo from here to graphics repository and updated source to it in the README.
+
 1.0.4 / 2019-11-10
 ==================
 * [MISC] Removed unnecessary jsdoc comments.
