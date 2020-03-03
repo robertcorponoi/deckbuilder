@@ -1,6 +1,8 @@
 'use strict';
 
 function _typeof(obj) {
+  "@babel/helpers - typeof";
+
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
     _typeof = function (obj) {
       return typeof obj;
@@ -170,9 +172,7 @@ function randomInt(min, max) {
  * Deckbuilder helps you create and manage car decks for any type of card game.
  */
 
-var Deckbuilder =
-/*#__PURE__*/
-function () {
+var Deckbuilder = /*#__PURE__*/function () {
   /**
    * A reference to the options for this instance.
    * 

@@ -1,6 +1,6 @@
 {
   "name": "deckbuilder",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A deck building and management tool any card based games in the browser or Node.",
   "main": "index.js",
   "module": "deckbuilder.js",
@@ -16,19 +16,19 @@
   },
   "types": "lib/index.d.ts",
   "devDependencies": {
-    "@babel/cli": "^7.7.7",
-    "@babel/core": "^7.7.7",
-    "@babel/plugin-proposal-class-properties": "^7.7.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-typescript": "^7.7.7",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-typescript": "^7.8.3",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
     "chai": "^4.2.0",
-    "mocha": "^6.2.2",
-    "rollup": "^1.27.14",
+    "mocha": "^7.1.0",
+    "rollup": "^1.32.0",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.8.3"
   },
   "repository": {
     "type": "git",
