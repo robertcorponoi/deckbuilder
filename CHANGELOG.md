@@ -1,3 +1,6 @@
+## 1.1.2 / 2020-04-16
+- [MISC] Updated out-of-date dependencies to their latest versions which also fixed all possible fixed security vulnerabilities.
+
 ## 1.1.1 / 2020-03-02
 - [MISC] Replaced rollup-plugin-commonjs and rollup-plugin-node-resolve with their @rollup versions.
 - [MISC] Updated out-of-date dependencies to their latest versions.
