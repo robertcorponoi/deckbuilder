@@ -53,6 +53,94 @@ function _defineProperty(obj, key, value) {
   return obj;
 }
 
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+  return arr2;
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _createForOfIteratorHelper(o) {
+  if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+    if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {
+      var i = 0;
+
+      var F = function () {};
+
+      return {
+        s: F,
+        n: function () {
+          if (i >= o.length) return {
+            done: true
+          };
+          return {
+            done: false,
+            value: o[i++]
+          };
+        },
+        e: function (e) {
+          throw e;
+        },
+        f: F
+      };
+    }
+
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  var it,
+      normalCompletion = true,
+      didErr = false,
+      err;
+  return {
+    s: function () {
+      it = o[Symbol.iterator]();
+    },
+    n: function () {
+      var step = it.next();
+      normalCompletion = step.done;
+      return step;
+    },
+    e: function (e) {
+      didErr = true;
+      err = e;
+    },
+    f: function () {
+      try {
+        if (!normalCompletion && it.return != null) it.return();
+      } finally {
+        if (didErr) throw err;
+      }
+    }
+  };
+}
+
 var Options =
 /**
  * The maximum amount of cards that the deck can contain.
@@ -171,7 +259,6 @@ function randomInt(min, max) {
 /**
  * Deckbuilder helps you create and manage car decks for any type of card game.
  */
-
 var Deckbuilder = /*#__PURE__*/function () {
   /**
    * A reference to the options for this instance.
@@ -251,15 +338,15 @@ var Deckbuilder = /*#__PURE__*/function () {
     value: function add(cards) {
       var shuffleIn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
       if (!Array.isArray(cards)) cards = [cards];
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
+
+      var _iterator = _createForOfIteratorHelper(cards),
+          _step;
 
       try {
-        for (var _iterator = cards[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var card = _step.value;
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var _card = _step.value;
 
-          if (!card.id) {
+          if (!_card.id) {
             console.warn('Card is missing the id property, skipping...');
             continue;
           }
@@ -271,24 +358,15 @@ var Deckbuilder = /*#__PURE__*/function () {
 
           if (shuffleIn) {
             var randomPosition = Math.floor(Math.random() * this.deck.length);
-            this.deck.splice(randomPosition, 0, card);
-          } else this.deck.push(card);
+            this.deck.splice(randomPosition, 0, _card);
+          } else this.deck.push(_card);
 
           this.count++;
         }
       } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
+        _iterator.e(err);
       } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-            _iterator["return"]();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
+        _iterator.f();
       }
 
       return this;
@@ -329,32 +407,23 @@ var Deckbuilder = /*#__PURE__*/function () {
     key: "edit",
     value: function edit(id, key) {
       var value = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-      var _iteratorNormalCompletion2 = true;
-      var _didIteratorError2 = false;
-      var _iteratorError2 = undefined;
+
+      var _iterator2 = _createForOfIteratorHelper(this.deck),
+          _step2;
 
       try {
-        for (var _iterator2 = this.deck[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-          var card = _step2.value;
+        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var _card2 = _step2.value;
 
-          if (card.id === id) {
-            value ? card[key] = value : delete card[key];
+          if (_card2.id === id) {
+            value ? _card2[key] = value : delete _card2[key];
             break;
           }
         }
       } catch (err) {
-        _didIteratorError2 = true;
-        _iteratorError2 = err;
+        _iterator2.e(err);
       } finally {
-        try {
-          if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
-            _iterator2["return"]();
-          }
-        } finally {
-          if (_didIteratorError2) {
-            throw _iteratorError2;
-          }
-        }
+        _iterator2.f();
       }
 
       return this;
@@ -467,6 +536,43 @@ var Deckbuilder = /*#__PURE__*/function () {
       return this.deck.filter(function (card) {
         return ids.includes(card.id);
       });
+    }
+    /**
+     * 
+     * Searches and draws cards from the deck
+     * 
+     * @param criteria search criteria
+     * @param max maximum number of cards that must match the criteria. If specified and reached, further cards will not be considered
+     * @param min minimum number of cards that must match the criteria. If not reached, no card will be drawn
+     * @returns cards matching the criteria (if min is satisfied), up to max (if specified)
+     */
+
+  }, {
+    key: "search",
+    value: function search(criteria, max, min) {
+      if (!min) min = 1;
+      if (!max) max = Infinity;
+      var matches = [];
+
+      for (var i = 0; i < this.deck.length; ++i) {
+        if (matches.length >= max) continue;
+
+        if (criteria(this.deck[i], i, this.deck)) {
+          matches.push(this.deck[i]);
+        }
+      }
+
+      if (matches.length >= min) {
+        this.drawn = [].concat(_toConsumableArray(this.drawn), matches);
+        this.deck = this.deck.filter(function (card) {
+          return !matches.map(function (card) {
+            return card.id;
+          }).includes(card.id);
+        });
+        return matches;
+      }
+
+      return [];
     }
     /**
      * Discards any number of cards from the draw pile and optionally from the deck.

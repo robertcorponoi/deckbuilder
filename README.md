@@ -276,6 +276,32 @@ const pick = deckbuilder.pick(['knight', 'warrior']);
 [{ /* Knight Card */ }, { /* Warrior Card */ }]
 ```
 
+### **search**
+
+Search lets you choose any number of cards from the deck with custom criteria.
+
+You can also optionally specify a minimum number of results (if not reached, no card will be drawn), and a maximum number of results (cards are iterated in order and drawn if they satisfy the criteria until the maximum number of results is reached).
+
+The cards that are drawn from the deck will be added to the `deckbuilder.drawn` pile so that they cannot be drawn again.
+
+| param      | type                             | description                                         | default  |
+|------------|----------------------------------|-----------------------------------------------------|----------|
+| criteria   | function (same of Array.filter)  | The criteria with which to select the cards to draw |          |
+| max        | number                           | Maximum number of cards to draw                     | Infinity |
+| min        | number                           | Minimum number of cards to draw                     | 1        |
+
+```js
+// all cards with a value greater than 10
+const pick = deckbuilder.search(card => card.value > 10);
+
+// up to 4 cards with a value greater than 10
+const pick = deckbuilder.search(card => card.value > 10, 4);
+
+// up to 4 cards with a value > 10, but only if there are at
+// least 2 in the deck
+const pick = deckbuilder.search(card => card.value > 10, 4, 2);
+```
+
 ### **discard**
 
 Discard one or more cards from the drawn pile and optionally the deck.

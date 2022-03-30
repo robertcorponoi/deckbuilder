@@ -1,6 +1,7 @@
 import Card from './interfaces/Card';
 import Deal from './interfaces/Deal';
 import Options from './options/Options';
+declare type Criteria = ((card: Card) => boolean) | ((card: Card, index: number) => boolean) | ((card: Card, index: number, array: Array<Card>) => boolean);
 /**
  * Deckbuilder helps you create and manage car decks for any type of card game.
  */
@@ -119,6 +120,16 @@ export default class Deckbuilder {
      */
     pick(ids: (string | Array<string>)): Array<Card>;
     /**
+     *
+     * Searches and draws cards from the deck
+     *
+     * @param criteria search criteria
+     * @param max maximum number of cards that must match the criteria. If specified and reached, further cards will not be considered
+     * @param min minimum number of cards that must match the criteria. If not reached, no card will be drawn
+     * @returns cards matching the criteria (if min is satisfied), up to max (if specified)
+     */
+    search(criteria: Criteria, max?: number, min?: number): Array<Card>;
+    /**
      * Discards any number of cards from the draw pile and optionally from the deck.
      *
      * @param {string|Array<string>} ids The id or ids of the cards to discard.
@@ -144,3 +155,4 @@ export default class Deckbuilder {
      */
     returnDiscarded(cards?: (any | Array<string>)): Deckbuilder;
 }
+export {};

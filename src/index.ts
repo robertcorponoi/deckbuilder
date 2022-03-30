@@ -7,6 +7,11 @@ import Options from './options/Options';
 import { deepCopy } from './utils/utils';
 import { fisherYates, strip } from './utils/shuffle';
 
+type Criteria = 
+  | ((card: Card) => boolean)
+  | ((card: Card, index: number) => boolean)
+  | ((card: Card, index: number, array: Array<Card>) => boolean);
+
 /**
  * Deckbuilder helps you create and manage car decks for any type of card game.
  */
@@ -265,6 +270,42 @@ export default class Deckbuilder {
     return this.deck.filter(card => ids.includes(card.id));
 
   }
+
+  /**
+   * 
+   * Searches and draws cards from the deck
+   * 
+   * @param criteria search criteria
+   * @param max maximum number of cards that must match the criteria. If specified and reached, further cards will not be considered
+   * @param min minimum number of cards that must match the criteria. If not reached, no card will be drawn
+   * @returns cards matching the criteria (if min is satisfied), up to max (if specified)
+   */
+  search(criteria: Criteria, max?: number, min?: number): Array<Card> {
+
+    if (!min) min = 1;
+    if (!max) max = Infinity;
+
+    const matches: Array<Card> = [];
+
+    for (let i: number = 0; i < this.deck.length; ++i) {
+
+      if (matches.length >= max) continue;
+
+      if (criteria(this.deck[i], i, this.deck)) {
+        matches.push(this.deck[i]);
+      }
+
+    }
+
+    if (matches.length >= min) {
+      this.drawn = [...this.drawn, ...matches];
+      this.deck = this.deck.filter(card => !matches.map(card => card.id).includes(card.id));
+      return matches;
+    }
+
+    return [];
+
+  } 
 
   /**
    * Discards any number of cards from the draw pile and optionally from the deck.
